@@ -1,0 +1,55 @@
+"use client";
+
+import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
+import { useRef, useEffect, useState } from "react";
+
+export default function Page2() {
+  const router = useRouter();
+  const audioRef1 = useRef<HTMLAudioElement>(null);
+  const audioRef2 = useRef<HTMLAudioElement>(null);
+  const [audio1Played, setAudio1Played] = useState(false);
+  const [audio2Played, setAudio2Played] = useState(false);
+
+  useEffect(() => {
+    if (audioRef1.current && !audio1Played) {
+      audioRef1.current.volume = 0.5; // 🎵 Chỉnh âm lượng Voice 1
+      audioRef1.current.play().catch(err => console.log("Autoplay bị chặn:", err));
+    }
+    if (audioRef2.current && !audio2Played) {
+      audioRef2.current.volume = 0.08; // 🎵 Chỉnh âm lượng Voice 2
+      audioRef2.current.play().catch(err => console.log("Autoplay bị chặn:", err));
+    }
+  }, [audio1Played, audio2Played]);
+
+  return (
+    <div className={styles.container}>
+
+      {/* Hai ảnh cố định ở hai bên */}
+      <img src="/huy.png" alt="Ảnh 1" className={styles.fixedImageLeft} />
+      <img src="/tung.png" alt="Ảnh 2" className={styles.fixedImageRight} />
+
+      <audio
+        ref={audioRef1}
+        src="/3.mp3"
+        autoPlay
+        hidden
+        onEnded={() => setAudio1Played(true)} // 🔹 Khi phát xong, ngăn không phát lại
+      />
+      <audio
+        ref={audioRef2}
+        src="/2.mp3"
+        autoPlay
+        hidden
+        onEnded={() => setAudio2Played(true)} // 🔹 Khi phát xong, ngăn không phát lại
+      />
+
+      {/* Ảnh hoa di chuyển từ phải sang trái */}
+      <img src="/hoa.png" alt="Hoa" className={styles.movingImage} />
+
+      <button className={styles.nextButton} onClick={() => router.push("/page3")}>
+        Next →
+      </button>
+    </div>
+  );
+}

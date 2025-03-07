@@ -1,0 +1,132 @@
+.container {
+  background: url("/ptit.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.centerText {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 40%;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.image {
+  height: auto;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Hiệu ứng ảnh từ hai bên vào giữa và thu nhỏ dần */
+.image:first-child {
+  position: absolute;
+  left: -20%;
+  width: 400px;
+  bottom: -250px;
+  animation: slideInLeft 4s infinite ease-in-out;
+}
+
+.image:last-child {
+  position: absolute;
+  right: -20%;
+  width: 400px;
+  bottom: -250px;
+  animation: slideInRight 4s infinite ease-in-out;
+}
+
+@keyframes slideInLeft {
+  0% {
+    left: -20%;
+    width: 400px;
+    opacity: 1; /* Ẩn */
+  }
+  50% {
+    left: 35%;
+    width: 200px;
+    opacity: 1; /* Hiện lên khi vào giữa */
+  }
+  75% {
+    left: 35%;
+    width: 200px;
+    opacity: 1; /* Giữ yên */
+  }
+  100% {
+    left: 35%;
+    width: 200px;
+    opacity: 1; /* Biến mất */
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    right: -20%;
+    width: 400px;
+    opacity: 1; /* Ẩn */
+  }
+  50% {
+    right: 35%;
+    width: 200px;
+    opacity: 1; /* Hiện lên khi vào giữa */
+  }
+  75% {
+    right: 35%;
+    width: 200px;
+    opacity: 1; /* Giữ yên */
+  }
+  100% {
+    right: 35%;
+    width: 200px;
+    opacity: 1; /* Biến mất */
+  }
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nextButton:hover {
+  background-color: #ccc;
+}
+
+/* CSS cho trình phát âm thanh */
+.audioControls {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.audioBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

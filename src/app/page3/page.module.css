@@ -1,0 +1,107 @@
+.container {
+  background: url("/damcuoi.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.centerImages {
+  display: flex;
+  gap: 50px; /* Khoảng cách giữa hai ảnh */
+  top: 100px;
+}
+
+.centerImage {
+  width: 150px; /* Kích thước ảnh giữa */
+  height: auto;
+}
+
+.bottomImages {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.leftImages,
+.rightImages {
+  display: flex;
+  flex-direction: row; /* Chuyển từ cột dọc thành hàng ngang */
+  gap: 40px; /* Khoảng cách giữa các ảnh */
+}
+
+.leftImages img,
+.rightImages img {
+  width: 80px; /* Kích thước ảnh */
+  height: auto;
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nextButton:hover {
+  background-color: #ccc;
+}
+
+.centerText {
+  color: #ccc6c6d8;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  top: -200px;
+  text-shadow: 2px 2px 5px rgba(255, 0, 255, 0.678);
+  animation: glow 2s infinite alternate ease-in-out, sparkle 1s infinite linear;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 2px 2px 5px rgba(230, 173, 227, 0.89), 
+                 4px 4px 10px rgba(231, 155, 221, 0.8);
+  }
+  50% {
+    text-shadow: 3px -3px 8px rgba(255, 255, 255, 0.8), 
+                 -3px 3px 12px rgba(173, 216, 230, 0.9);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+.star:nth-child(odd) { animation-duration: 3s; }
+.star:nth-child(even) { animation-duration: 1.5s; }

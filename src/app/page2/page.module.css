@@ -1,0 +1,74 @@
+.container {
+  background: url("/lop.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.centerText {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 40%;
+}
+
+/* Ảnh cố định bên trái */
+.fixedImageLeft {
+  position: absolute;
+  left: 5%;
+  top: 40%;
+  width: 150px;
+  height: auto;
+}
+
+/* Ảnh cố định bên phải */
+.fixedImageRight {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  width: 150px;
+  height: auto;
+}
+
+/* Ảnh hoa di chuyển từ trái sang phải và lặp lại */
+.movingImage {
+  position: absolute;
+  left: 5%; /* Xuất phát từ vị trí ảnh trái */
+  top: 50%;
+  width: 100px;
+  height: auto;
+  animation: moveRight 4s linear infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    left: 5%; /* Bắt đầu từ ảnh bên trái */
+  }
+  50% {
+    left: 50%; /* Đi qua giữa màn hình */
+  }
+  100% {
+    left: 80%; /* Đến ảnh bên phải */
+  }
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nextButton:hover {
+  background-color: #ccc;
+}
